@@ -78,15 +78,6 @@ a {
   animation: spin 2s linear infinite;
 }
 
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
 /******************************** 
 ****** HEADER */
 .header {
@@ -106,6 +97,9 @@ a {
   width: 500px;
   max-width: 100%;
   z-index: 1;
+  animation-name: menu;
+  animation-duration: 1s;
+  animation-timing-function: ease-out;
 }
 
 /* Menu */
@@ -435,6 +429,31 @@ a {
   margin-left: 5px;
   color: currentColor;
   font-size: 1.6rem;
+}
+
+/******************************** 
+****** MENU */
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes menu {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -7.8rem);
+  }
+  80% {
+    transform: translate(-50%, 1rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
 }
 
 /******************************** 

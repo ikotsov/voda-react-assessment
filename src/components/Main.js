@@ -22,22 +22,30 @@ class Main extends Component {
       buttonText: "",
       descriptionPage: "",
       tiles: [],
-      isLoading: false
+      isLoadingMenu: false,
+      isLoadingSlider: false,
+      isLoadingHome: false,
+      isLoadingPage: false
     };
   }
 
   componentDidMount() {
-    this.setState({ isLoading: true });
+    this.setState({
+      isLoadingMenu: true,
+      isLoadingSlider: true,
+      isLoadingHome: true,
+      isLoadingPage: true
+    });
 
     fetch(baseUrl + "menu")
       .then(response => response.json())
-      .then(data => this.setState({ menu: data, isLoading: false }))
-      .catch(error => this.setState({ error, isLoading: false }));
+      .then(data => this.setState({ menu: data, isLoadingMenu: false }))
+      .catch(error => this.setState({ error, isLoadingMenu: false }));
 
     fetch(baseUrl + "slider")
       .then(response => response.json())
-      .then(data => this.setState({ slider: data, isLoading: false }))
-      .catch(error => this.setState({ error, isLoading: false }));
+      .then(data => this.setState({ slider: data, isLoadingSlider: false }))
+      .catch(error => this.setState({ error, isLoadingSlider: false }));
 
     fetch(baseUrl + "home")
       .then(response => response.json())
@@ -51,10 +59,10 @@ class Main extends Component {
           formText: data[0].sections[1].formText,
           formLabels: data[0].sections[1].formLabels,
           buttonText: data[0].sections[1].buttonText,
-          isLoading: false
+          isLoadingHome: false
         })
       )
-      .catch(error => this.setState({ error, isLoading: false }));
+      .catch(error => this.setState({ error, isLoadingHome: false }));
 
     fetch(baseUrl + "page")
       .then(response => response.json())
@@ -62,10 +70,10 @@ class Main extends Component {
         this.setState({
           descriptionPage: data[0].description,
           tiles: data[0].tiles,
-          isLoading: false
+          isLoadingPage: false
         })
       )
-      .catch(error => this.setState({ error, isLoading: false }));
+      .catch(error => this.setState({ error, isLoadingPage: false }));
   }
 
   render() {
@@ -82,12 +90,15 @@ class Main extends Component {
       formText,
       formLabels,
       buttonText,
-      isLoading
+      isLoadingMenu,
+      isLoadingSlider,
+      isLoadingHome,
+      isLoadingPage
     } = this.state;
 
     return (
       <div className="App">
-        <Header menu={menu} slider={slider} isLoading={isLoading} />
+        <Header menu={menu} slider={slider} />
         <Switch>
           <Route path="/home">
             <Home

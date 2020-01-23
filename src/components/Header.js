@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import { NavLink } from "react-router-dom";
 import Slick from "react-slick";
 import "slick-carousel/slick/slick.css";
@@ -51,23 +51,21 @@ function Slider(props) {
   return <Slick {...slickSettings}>{slides}</Slick>;
 }
 
-class Header extends Component {
-  render() {
-    return (
-      <header className="header">
-        <div className="header__top">
-          <nav className="menu">
-            <ul className="menu__list">
-              <Menu menu={this.props.menu} />
-            </ul>
-          </nav>
-          <SearchModal />
-        </div>
+function Header(props) {
+  return (
+    <header className="header">
+      <div className="header__top">
+        <nav className="menu">
+          <ul className="menu__list">
+            <Menu menu={props.menu} />
+          </ul>
+        </nav>
+        <SearchModal />
+      </div>
 
-        <Slider slider={this.props.slider} />
-      </header>
-    );
-  }
+      <Slider slider={props.slider} />
+    </header>
+  );
 }
 
 export default Header;

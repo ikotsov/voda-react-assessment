@@ -1,7 +1,7 @@
-import React, { Component } from "react";
+import React from "react";
 
-function Tiles({ tiles }) {
-  return tiles.map(tile => {
+function Page2(props) {
+  const tiles = props.tiles.map(tile => {
     return (
       <div className="tile">
         <div className="tile__icon">
@@ -15,21 +15,15 @@ function Tiles({ tiles }) {
       </div>
     );
   });
-}
 
-class Page2 extends Component {
-  render() {
-    return (
-      <div className="page page2">
-        <h1 className="page__title">{this.props.description}</h1>
-        <div className="page__content">
-          <div className="tiles">
-            <Tiles tiles={this.props.tiles} />
-          </div>
-        </div>
+  return (
+    <div className="page page2">
+      <h1 className="page__title">{props.description}</h1>
+      <div className="page__content">
+        <div className="tiles">{tiles}</div>
       </div>
-    );
-  }
+    </div>
+  );
 }
 
 export default Page2;
