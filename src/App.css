@@ -1,5 +1,5 @@
 /******************************** 
-****** Colors */
+****** COLORS */
 :root {
   --color-blue: #2497ea;
   --color-blue-light: #1292ee;
@@ -17,7 +17,7 @@
 }
 
 /******************************** 
-****** General */
+****** GENERAL */
 *,
 *::after,
 *::before {
@@ -88,7 +88,7 @@ a {
 }
 
 /******************************** 
-****** Header */
+****** HEADER */
 .header {
   position: relative;
   height: 350px;
@@ -203,7 +203,7 @@ a {
 }
 
 /******************************** 
-****** Home */
+****** HOME */
 .sections {
   padding: 0 3rem;
 }
@@ -378,7 +378,7 @@ a {
 }
 
 /******************************** 
-****** Page 2 */
+****** PAGE 2 */
 .page2 {
   text-align: center;
 }
@@ -438,7 +438,7 @@ a {
 }
 
 /******************************** 
-****** Media Queries */
+****** MEDIA QUERIES */
 @media only screen and (max-width: 900px) {
   html {
     font-size: 56.25%;
